@@ -44,7 +44,7 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --radius: 14px;
   --shadow: 0 18px 44px rgba(0, 0, 0, .55);
-  --header-h: 106px;
+  --header-h: 124px;
 }
 
 /* ---------- Base ---------- */
@@ -389,10 +389,14 @@ a:hover { color: var(--gold-bright); }
   margin-top: 28px; border-radius: var(--radius); overflow: hidden;
   border: 1px solid var(--hairline-soft); position: relative;
 }
-.map-card__media { position: relative; }
-.map-card img {
-  width: 100%; height: clamp(240px, 30vw, 340px);
-  object-fit: cover; display: block;
+.map-card__media {
+  position: relative;
+  min-height: clamp(260px, 32vw, 360px);
+  display: grid;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(212, 175, 55, .08), transparent 60%),
+    linear-gradient(160deg, #16150e 0%, var(--bg-elev-2) 100%);
+  overflow: hidden;
 }
 .map-card__bar {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
@@ -401,29 +405,51 @@ a:hover { color: var(--gold-bright); }
 }
 .map-card__bar address { font-style: normal; color: var(--muted); font-size: .97rem; }
 .map-card__bar address strong { color: var(--text); }
-.map-attrib {
-  position: absolute; right: 8px; bottom: 8px;
-  font-size: .7rem; padding: 2px 8px; border-radius: 6px;
-  background: rgba(255, 255, 255, .82); color: #333;
-}
-.map-attrib a { color: #333; }
-/* Google Maps click-to-load: o iframe só carrega após consentimento por clique */
+/* Google Maps click-to-load: nada da Google carrega até ao clique.
+   Antes do consentimento mostra-se apenas este aviso (sem mapa nem street view). */
 .map-consent {
-  position: absolute; inset: 0;
-  display: grid; place-content: center; gap: 12px;
-  background: rgba(5, 5, 5, .42); text-align: center; padding: 20px;
+  align-self: center;
+  display: grid; justify-items: center; gap: 12px;
+  text-align: center; padding: 32px 24px;
+}
+.map-consent__pin { color: var(--gold); margin-bottom: 2px; }
+.map-consent__title {
+  font-family: var(--font-display); font-size: 1.3rem; color: var(--text);
 }
 .map-consent__note {
-  margin: 0; font-size: .82rem; color: var(--text);
-  background: rgba(5, 5, 5, .82); padding: 6px 14px; border-radius: 999px;
-  justify-self: center;
+  margin: 0; font-size: .92rem; color: var(--muted); max-width: 42ch;
 }
 .map-consent__note a { color: var(--gold-light); }
-html:not(.js) .map-consent { display: none; }
+.map-consent .btn { margin-top: 4px; }
+html:not(.js) .map-consent .btn { display: none; }
 .map-card__iframe {
-  width: 100%; height: clamp(240px, 30vw, 340px);
+  width: 100%; height: clamp(260px, 32vw, 360px);
   border: 0; display: block;
 }
+
+/* ---------- Banner de consentimento de cookies ---------- */
+.cookiebar {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 130;
+  max-width: 860px; margin-inline: auto;
+  background: var(--bg-elev-2); color: var(--text);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 18px 22px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px 28px; flex-wrap: wrap;
+}
+.cookiebar[hidden] { display: none; }
+.cookiebar__txt { margin: 0; font-size: .92rem; color: var(--muted); flex: 1 1 380px; }
+.cookiebar__txt strong { color: var(--text); }
+.cookiebar__txt a { color: var(--gold-light); }
+.cookiebar__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.cookiebar__actions .btn { padding: 10px 22px; font-size: .95rem; }
+
+.cookie-settings {
+  background: none; border: none; padding: 0; cursor: pointer;
+  color: var(--muted); font: inherit; text-decoration: none;
+}
+.cookie-settings:hover { color: var(--gold-bright); text-decoration: underline; }
 
 /* ---------- Footer (minimal) ---------- */
 .site-footer {

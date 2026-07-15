@@ -26,7 +26,7 @@
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=9">
+  <link rel="stylesheet" href="assets/css/styles.css?v=12">
 
   <script type="application/ld+json">
   {
@@ -287,12 +287,14 @@
           </div>
         </div>
         <div class="map-card">
-          <div class="map-card__media">
-            <img src="assets/img/mapa-rio-meao.webp" alt="Mapa da zona de Rio Meão com a localização da Gold Cleaning assinalada na Rua Nova" width="1280" height="640" loading="lazy">
-            <span class="map-attrib">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors</span>
-            <div class="map-consent">
-              <button type="button" class="btn btn--gold map-load">Ver mapa interativo</button>
-              <p class="map-consent__note">Ao carregar o mapa aceita os cookies da Google · <a href="cookies.html">saber mais</a></p>
+          <div class="map-card__media" id="map-embed" data-maps="https://maps.google.com/maps?q=40.958470,-8.596591&amp;z=16&amp;hl=pt&amp;output=embed">
+            <div class="map-consent" id="map-placeholder">
+              <span class="map-consent__pin" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <strong class="map-consent__title">Onde estamos</strong>
+              <p class="map-consent__note">Para mostrar o mapa usamos o Google Maps, que instala cookies. Aceite para o ver aqui — em alternativa, use o botão «Abrir no Google Maps». <a href="cookies.html">Saber mais</a></p>
+              <button type="button" class="btn btn--gold" id="map-accept">Aceitar e ver o mapa</button>
             </div>
           </div>
           <div class="map-card__bar">
@@ -363,11 +365,12 @@
           <li><a href="cookies.html">Cookies</a></li>
           <li><a href="termos.html">Termos e Dados da Empresa</a></li>
           <li><a href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener noreferrer"><strong>Livro de Reclamações</strong></a></li>
+          <li><button type="button" class="cookie-settings" id="cookie-settings">Definições de cookies</button></li>
         </ul>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=7" defer></script>
+  <script src="assets/js/main.js?v=8" defer></script>
 </body>
 </html>

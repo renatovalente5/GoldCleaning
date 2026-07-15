@@ -138,23 +138,67 @@
   /* Sem showModal (browsers antigos), os links da galeria navegam
      diretamente para a imagem — fallback nativo, sem JS adicional. */
 
-  /* ---------- Mapa Google (click-to-load, sem cookies até ao clique) ---------- */
-  var mapBtn = document.querySelector('.map-load');
-  if (mapBtn) {
-    mapBtn.addEventListener('click', function () {
-      var media = document.querySelector('.map-card__media');
-      if (!media) return;
-      var iframe = document.createElement('iframe');
-      iframe.src = 'https://maps.google.com/maps?q=40.958470,-8.596591&z=16&hl=pt&output=embed';
-      iframe.title = 'Mapa interativo do Google Maps com a localização da Gold Cleaning na Rua Nova, Rio Meão';
-      iframe.className = 'map-card__iframe';
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-      media.innerHTML = '';
-      media.appendChild(iframe);
-      iframe.focus();
-    });
+  /* ---------- Consentimento de cookies + mapa Google ----------
+     Nada da Google carrega até o utilizador aceitar. A escolha fica
+     memorizada (localStorage) e pode ser alterada em "Definições de cookies". */
+  var CK = 'gc-cookie-consent';
+  var mapBox = document.getElementById('map-embed');
+
+  function getConsent() { try { return localStorage.getItem(CK); } catch (e) { return null; } }
+  function setConsent(v) { try { localStorage.setItem(CK, v); } catch (e) {} }
+
+  function loadMap() {
+    if (!mapBox || mapBox.querySelector('iframe')) return;
+    var url = mapBox.getAttribute('data-maps');
+    if (!url) return;
+    var ph = document.getElementById('map-placeholder');
+    var ifr = document.createElement('iframe');
+    ifr.src = url;
+    ifr.title = 'Mapa do Google Maps com a localização da Gold Cleaning na Rua Nova, Rio Meão';
+    ifr.className = 'map-card__iframe';
+    ifr.loading = 'lazy';
+    ifr.setAttribute('allowfullscreen', '');
+    ifr.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    if (ph) ph.remove();
+    mapBox.appendChild(ifr);
   }
+
+  /* Banner de consentimento (criado por JS; RGPD / Lei 41/2004) */
+  var cookiesLink = document.querySelector('a[href$="cookies.html"]');
+  var cookiesHref = cookiesLink ? cookiesLink.getAttribute('href') : 'cookies.html';
+  var bar = document.createElement('div');
+  bar.className = 'cookiebar';
+  bar.id = 'cookiebar';
+  bar.setAttribute('role', 'region');
+  bar.setAttribute('aria-label', 'Consentimento de cookies');
+  bar.hidden = true;
+  bar.innerHTML =
+    '<p class="cookiebar__txt">Utilizamos cookies do <strong>Google Maps</strong> apenas para mostrar o mapa da nossa localização. ' +
+    'Pode aceitar ou rejeitar — o site funciona na mesma. Saiba mais na <a href="' + cookiesHref + '">Política de Cookies</a>.</p>' +
+    '<div class="cookiebar__actions">' +
+    '<button type="button" class="btn btn--ghost" id="cookie-reject">Rejeitar</button>' +
+    '<button type="button" class="btn btn--gold" id="cookie-accept">Aceitar</button>' +
+    '</div>';
+  document.body.appendChild(bar);
+
+  function acceptCookies() { setConsent('accepted'); bar.hidden = true; loadMap(); }
+  function rejectCookies() { setConsent('rejected'); bar.hidden = true; }
+
+  var consent = getConsent();
+  if (consent === 'accepted') loadMap();
+  else if (consent !== 'rejected') bar.hidden = false;
+
+  var elAccept = document.getElementById('cookie-accept');
+  var elReject = document.getElementById('cookie-reject');
+  var elMapAccept = document.getElementById('map-accept');
+  var elSettings = document.getElementById('cookie-settings');
+  if (elAccept) elAccept.addEventListener('click', acceptCookies);
+  if (elReject) elReject.addEventListener('click', rejectCookies);
+  if (elMapAccept) elMapAccept.addEventListener('click', acceptCookies);
+  if (elSettings) elSettings.addEventListener('click', function (e) {
+    e.preventDefault();
+    bar.hidden = false;
+  });
 
   /* ---------- Ano no rodapé ---------- */
   var yearEl = document.getElementById('year');
