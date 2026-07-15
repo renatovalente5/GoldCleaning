@@ -184,6 +184,35 @@ a:hover { color: var(--gold-bright); }
 }
 .hero p { color: var(--text); font-size: 1.13rem; max-width: 54ch; margin: 0 0 32px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero__scroll {
+  position: absolute; left: 50%; bottom: 26px; z-index: 2;
+  width: 48px; height: 48px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--hairline); color: var(--gold-light);
+  background: rgba(5, 5, 5, .45);
+  animation: hero-bounce 2.4s ease-in-out infinite;
+}
+.hero__scroll:hover { border-color: var(--gold); color: var(--gold-bright); }
+@keyframes hero-bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 9px); }
+}
+
+/* ---------- Voltar ao topo ---------- */
+.to-top {
+  position: fixed; right: 22px; bottom: 22px; z-index: 90;
+  width: 50px; height: 50px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--grad-gold); color: #131006;
+  border: none; cursor: pointer;
+  box-shadow: 0 8px 26px rgba(212, 175, 55, .3);
+  opacity: 0; visibility: hidden; transform: translateY(14px);
+  transition: opacity .25s ease, transform .25s ease, visibility 0s .25s;
+}
+.to-top.is-visible {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .25s ease, transform .25s ease, visibility 0s;
+}
 
 /* ---------- Secções ---------- */
 .section { padding: 72px 0; scroll-margin-top: 66px; }
@@ -367,6 +396,23 @@ a:hover { color: var(--gold-bright); }
   background: rgba(255, 255, 255, .82); color: #333;
 }
 .map-attrib a { color: #333; }
+/* Google Maps click-to-load: o iframe só carrega após consentimento por clique */
+.map-consent {
+  position: absolute; inset: 0;
+  display: grid; place-content: center; gap: 12px;
+  background: rgba(5, 5, 5, .42); text-align: center; padding: 20px;
+}
+.map-consent__note {
+  margin: 0; font-size: .82rem; color: var(--text);
+  background: rgba(5, 5, 5, .82); padding: 6px 14px; border-radius: 999px;
+  justify-self: center;
+}
+.map-consent__note a { color: var(--gold-light); }
+html:not(.js) .map-consent { display: none; }
+.map-card__iframe {
+  width: 100%; height: clamp(240px, 30vw, 340px);
+  border: 0; display: block;
+}
 
 /* ---------- Footer (minimal) ---------- */
 .site-footer {
@@ -445,6 +491,7 @@ a:hover { color: var(--gold-bright); }
   .contact-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; gap: 36px; }
   .ba-wrap { grid-template-columns: 1fr; gap: 48px; }
+  .ba-slider { margin-inline: auto; }
   .site-footer__top { grid-template-columns: 1fr 1fr; }
 
   html.js .nav-toggle { display: inline-flex; }

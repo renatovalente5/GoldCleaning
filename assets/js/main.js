@@ -2,15 +2,25 @@
 (function () {
   'use strict';
 
+  /* ---------- Botão "voltar ao topo" ---------- */
+  var toTop = document.createElement('button');
+  toTop.type = 'button';
+  toTop.className = 'to-top';
+  toTop.setAttribute('aria-label', 'Voltar ao topo da página');
+  toTop.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>';
+  document.body.appendChild(toTop);
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   /* ---------- Header: logo grande no topo, encolhe ao rolar ---------- */
   var header = document.querySelector('.site-header');
-  if (header) {
-    var onScroll = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 24);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
+  var onScroll = function () {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 24);
+    toTop.classList.toggle('is-visible', window.scrollY > 600);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   /* ---------- Navegação móvel ---------- */
   var toggle = document.querySelector('.nav-toggle');
@@ -109,6 +119,24 @@
   }
   /* Sem showModal (browsers antigos), os links da galeria navegam
      diretamente para a imagem — fallback nativo, sem JS adicional. */
+
+  /* ---------- Mapa Google (click-to-load, sem cookies até ao clique) ---------- */
+  var mapBtn = document.querySelector('.map-load');
+  if (mapBtn) {
+    mapBtn.addEventListener('click', function () {
+      var media = document.querySelector('.map-card__media');
+      if (!media) return;
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://maps.google.com/maps?q=40.958470,-8.596591&z=16&hl=pt&output=embed';
+      iframe.title = 'Mapa interativo do Google Maps com a localização da Gold Cleaning na Rua Nova, Rio Meão';
+      iframe.className = 'map-card__iframe';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+      media.innerHTML = '';
+      media.appendChild(iframe);
+      iframe.focus();
+    });
+  }
 
   /* ---------- Ano no rodapé ---------- */
   var yearEl = document.getElementById('year');
