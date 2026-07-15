@@ -85,24 +85,40 @@
     var lbImg = lightbox.querySelector('img');
     var lbCaption = lightbox.querySelector('figcaption');
     var closeBtn = lightbox.querySelector('.lightbox__close');
+    var prevBtn = lightbox.querySelector('.lightbox__prev');
+    var nextBtn = lightbox.querySelector('.lightbox__next');
     var lastTrigger = null;
     var downOnBackdrop = false;
+    var current = 0;
 
-    links.forEach(function (link) {
+    var items = [];
+    links.forEach(function (link, i) {
+      var img = link.querySelector('img');
+      items.push({
+        src: link.getAttribute('href'),
+        alt: img ? img.alt : '',
+        caption: link.getAttribute('data-caption') || (img ? img.alt : '')
+      });
       link.addEventListener('click', function (e) {
         e.preventDefault();
-        var img = link.querySelector('img');
-        lbImg.src = link.getAttribute('href');
-        lbImg.alt = img ? img.alt : '';
-        lbCaption.textContent = link.getAttribute('data-caption') || (img ? img.alt : '');
         lastTrigger = link;
+        show(i);
         lightbox.showModal();
       });
     });
 
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function () { lightbox.close(); });
+    function show(i) {
+      current = (i + items.length) % items.length;
+      var item = items[current];
+      lbImg.src = item.src;
+      lbImg.alt = item.alt;
+      lbCaption.textContent = item.caption;
     }
+
+    if (closeBtn) closeBtn.addEventListener('click', function () { lightbox.close(); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { show(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { show(current + 1); });
+
     /* fechar apenas quando o gesto começa E termina no backdrop (evita fecho por arrasto) */
     lightbox.addEventListener('pointerdown', function (e) {
       downOnBackdrop = (e.target === lightbox);
@@ -112,6 +128,8 @@
     });
     lightbox.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { e.preventDefault(); lightbox.close(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); show(current - 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); show(current + 1); }
     });
     lightbox.addEventListener('close', function () {
       if (lastTrigger) lastTrigger.focus();
