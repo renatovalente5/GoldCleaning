@@ -53,12 +53,12 @@
   /* ---------- "Ver mais serviços" (telemóvel) ---------- */
   var svcToggle = document.querySelector('.services-toggle');
   var svcGrid = document.getElementById('lista-servicos');
-  if (svcToggle && svcGrid) {
+  var svcWrap = document.querySelector('.services-toggle-wrap');
+  if (svcToggle && svcGrid && svcWrap) {
     svcGrid.classList.add('is-collapsed');
     svcToggle.addEventListener('click', function () {
-      var collapsed = svcGrid.classList.toggle('is-collapsed');
-      svcToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-      svcToggle.textContent = collapsed ? 'Ver mais serviços' : 'Ver menos serviços';
+      svcGrid.classList.remove('is-collapsed');
+      svcWrap.style.display = 'none';
     });
   }
 
@@ -85,12 +85,12 @@
   /* ---------- "Ver mais fotos" (galeria) ---------- */
   var galToggle = document.querySelector('.gallery-toggle');
   var galGrid = document.getElementById('galeria-fotos');
-  if (galToggle && galGrid) {
+  var galWrap = document.querySelector('.gallery-toggle-wrap');
+  if (galToggle && galGrid && galWrap) {
     galGrid.classList.add('is-collapsed');
     galToggle.addEventListener('click', function () {
-      var collapsed = galGrid.classList.toggle('is-collapsed');
-      galToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-      galToggle.textContent = collapsed ? 'Ver mais fotos' : 'Ver menos fotos';
+      galGrid.classList.remove('is-collapsed');
+      galWrap.style.display = 'none';
     });
   }
 
