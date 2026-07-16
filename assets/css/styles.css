@@ -595,7 +595,9 @@ html:not(.js) .map-consent .btn { display: none; }
   /* "Ver mais serviços": colapsa a lista em telemóvel (só com JS) */
   html.js .services-grid.is-collapsed li:nth-child(n+7) { display: none; }
   html.js .services-toggle-wrap { display: block; }
-  .ba-grid { grid-template-columns: 1fr; }
+  .ba-grid { grid-template-columns: 1fr; gap: 28px; }
+  .ba-item { text-align: center; }
+  .ba-slider { max-width: 320px; margin-inline: auto; }
   html.js .ba-item.ba-hidden { display: none; }
   html.js .ba-toggle-wrap { display: block; }
   html.js .ba-toggle-wrap.is-done { display: none; }
