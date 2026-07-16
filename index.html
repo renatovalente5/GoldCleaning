@@ -26,7 +26,7 @@
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=12">
+  <link rel="stylesheet" href="assets/css/styles.css?v=18">
 
   <script type="application/ld+json">
   {
@@ -71,8 +71,8 @@
       </button>
       <nav class="nav" id="nav" aria-label="Navegação principal">
         <ul class="nav__links">
-          <li><a href="#servicos">Serviços</a></li>
           <li><a href="#antes-depois">Antes &amp; Depois</a></li>
+          <li><a href="#servicos">Serviços</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#galeria">Galeria</a></li>
           <li><a href="#contactos">Contactos</a></li>
@@ -88,7 +88,7 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="inicio">
       <div class="hero__bg">
-        <img src="assets/img/hero-fachada.webp" alt="" width="1600" height="1000" fetchpriority="high">
+        <img src="assets/img/hero-capa1.webp" alt="Carrinha da Gold Cleaning e um profissional a limpar o telhado de um edifício ao fundo" width="1152" height="696" fetchpriority="high">
       </div>
       <div class="container">
         <div class="hero__content">
@@ -104,6 +104,85 @@
       <a class="hero__scroll" href="#servicos" aria-label="Descer para a secção de serviços">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
       </a>
+    </section>
+
+    <!-- ============ ANTES / DEPOIS ============ -->
+    <section class="section section--elev" id="antes-depois" aria-labelledby="ba-titulo">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">Resultados</p>
+          <h2 id="ba-titulo">Antes &amp; Depois</h2>
+          <p>O nosso trabalho fala por si. Arraste o cursor de cada imagem para comparar o antes e o depois.</p>
+        </div>
+        <ul class="ba-grid">
+          <li class="ba-item">
+            <h3>Higienização de colchões</h3>
+            <div class="ba-slider">
+              <img src="assets/img/colchao-antes.webp" alt="Colchão com manchas amareladas e nódoas, antes da higienização" loading="lazy">
+              <img class="ba-slider__after" src="assets/img/colchao-depois.webp" alt="O mesmo colchão limpo e uniforme, depois da higienização" loading="lazy">
+              <div class="ba-slider__divider" aria-hidden="true"></div>
+              <span class="ba-label ba-label--antes" aria-hidden="true">Antes</span>
+              <span class="ba-label ba-label--depois" aria-hidden="true">Depois</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — Higienização de colchões (deslize)">
+            </div>
+          </li>
+          <li class="ba-item">
+            <h3>Limpeza de telhados</h3>
+            <div class="ba-slider">
+              <img src="assets/img/telhado-ba-antes.webp" alt="Telhado de telha com musgo e sujidade acumulada, antes da limpeza" loading="lazy">
+              <img class="ba-slider__after" src="assets/img/telhado-ba-depois.webp" alt="O mesmo telhado com a telha limpa e alaranjada, depois da limpeza" loading="lazy">
+              <div class="ba-slider__divider" aria-hidden="true"></div>
+              <span class="ba-label ba-label--antes" aria-hidden="true">Antes</span>
+              <span class="ba-label ba-label--depois" aria-hidden="true">Depois</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — Limpeza de telhados (deslize)">
+            </div>
+          </li>
+          <li class="ba-item">
+            <h3>Cadeiras e Sofás</h3>
+            <div class="ba-slider">
+              <img src="assets/img/cadeira-antes.webp" alt="Cadeira estofada clara com manchas e riscos de caneta, antes da limpeza" loading="lazy">
+              <img class="ba-slider__after" src="assets/img/cadeira-depois.webp" alt="A mesma cadeira estofada limpa, depois da higienização" loading="lazy">
+              <div class="ba-slider__divider" aria-hidden="true"></div>
+              <span class="ba-label ba-label--antes" aria-hidden="true">Antes</span>
+              <span class="ba-label ba-label--depois" aria-hidden="true">Depois</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — Cadeiras e Sofás (deslize)">
+            </div>
+          </li>
+          <li class="ba-item">
+            <h3>Limpeza de painéis solares</h3>
+            <div class="ba-slider">
+              <img src="assets/img/painel-antes.webp" alt="Painéis solares cobertos de poeira e sujidade, antes da limpeza" loading="lazy">
+              <img class="ba-slider__after" src="assets/img/painel-depois.webp" alt="Os mesmos painéis solares limpos e brilhantes, depois da limpeza" loading="lazy">
+              <div class="ba-slider__divider" aria-hidden="true"></div>
+              <span class="ba-label ba-label--antes" aria-hidden="true">Antes</span>
+              <span class="ba-label ba-label--depois" aria-hidden="true">Depois</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — Limpeza de painéis solares (deslize)">
+            </div>
+          </li>
+          <li class="ba-item">
+            <h3>Limpeza geral / pós-obra</h3>
+            <div class="ba-slider">
+              <img src="assets/img/casa-antes.webp" alt="Pavimento sujo com resíduos e sacos de lixo, antes da limpeza geral" loading="lazy">
+              <img class="ba-slider__after" src="assets/img/casa-depois.webp" alt="O mesmo espaço com o pavimento limpo e brilhante, depois da limpeza" loading="lazy">
+              <div class="ba-slider__divider" aria-hidden="true"></div>
+              <span class="ba-label ba-label--antes" aria-hidden="true">Antes</span>
+              <span class="ba-label ba-label--depois" aria-hidden="true">Depois</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — Limpeza geral / pós-obra (deslize)">
+            </div>
+          </li>
+          <li class="ba-item">
+            <h3>Remoção de bolor</h3>
+            <div class="ba-slider">
+              <img src="assets/img/bolor-antes.webp" alt="Teto de um quarto coberto de manchas escuras de bolor, antes da limpeza" loading="lazy">
+              <img class="ba-slider__after" src="assets/img/bolor-depois.webp" alt="O mesmo quarto com o teto limpo e saudável, depois da limpeza" loading="lazy">
+              <div class="ba-slider__divider" aria-hidden="true"></div>
+              <span class="ba-label ba-label--antes" aria-hidden="true">Antes</span>
+              <span class="ba-label ba-label--depois" aria-hidden="true">Depois</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — Remoção de bolor (deslize)">
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <!-- ============ SERVIÇOS ============ -->
@@ -139,6 +218,10 @@
             <h3>Trabalhos em Altura</h3>
           </li>
           <li class="service-card">
+            <span class="service-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M3 16h18"/><path d="M8 16v4M14 16v4M9 12v4M15 12v4"/><path d="M12 3c1.6 2.2 3 3.8 3 5.5a3 3 0 0 1-6 0C9 6.8 10.4 5.2 12 3Z"/></svg></span>
+            <h3>Lavagem de Passeios</h3>
+          </li>
+          <li class="service-card">
             <span class="service-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6 4V9l6 4V7h6v14z"/><path d="M3 21h18"/></svg></span>
             <h3>Limpeza Industrial</h3>
           </li>
@@ -148,7 +231,7 @@
           </li>
           <li class="service-card">
             <span class="service-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v1h12v-1a2 2 0 0 1 4 0v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M5 18v2M19 18v2"/></svg></span>
-            <h3>Estofos, Sofás e Colchões</h3>
+            <h3>Estofos, Sofás, Colchões e Cadeiras</h3>
           </li>
           <li class="service-card">
             <span class="service-card__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H4z"/><path d="M4 16c0 2 1.5 3 4 3h12"/><path d="M8 8h8M8 11h5"/></svg></span>
@@ -165,45 +248,6 @@
         </ul>
         <div class="services-toggle-wrap">
           <button type="button" class="btn btn--ghost services-toggle" aria-expanded="false" aria-controls="lista-servicos">Ver mais serviços</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ANTES / DEPOIS ============ -->
-    <section class="section section--elev" id="antes-depois" aria-labelledby="ba-titulo">
-      <div class="container">
-        <div class="section__head">
-          <p class="kicker">Resultados</p>
-          <h2 id="ba-titulo">Antes &amp; Depois</h2>
-          <p>O nosso trabalho fala por si. Compare os resultados reais de intervenções recentes.</p>
-        </div>
-        <div class="ba-wrap">
-          <div class="ba-block">
-            <h3>Higienização de sofás</h3>
-            <div class="ba-slider">
-              <img src="assets/img/sofas-antes.webp" alt="Sofá em tecido claro com manchas e sujidade, antes da higienização" width="900" height="1200" loading="lazy" decoding="async">
-              <img class="ba-slider__after" src="assets/img/sofas-depois.webp" alt="O mesmo sofá completamente limpo, depois da higienização profissional" width="900" height="1200" loading="lazy" decoding="async">
-              <div class="ba-slider__divider" aria-hidden="true"></div>
-              <span class="ba-label ba-label--antes" aria-hidden="true">Antes</span>
-              <span class="ba-label ba-label--depois" aria-hidden="true">Depois</span>
-              <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois da higienização do sofá (deslize)">
-            </div>
-            <p class="ba-hint">Arraste o cursor para comparar.</p>
-          </div>
-          <div class="ba-block">
-            <h3>Remoção de bolor</h3>
-            <div class="ba-pair">
-              <figure>
-                <img src="assets/img/bolor-antes.webp" alt="Teto de um quarto coberto de manchas escuras de bolor, antes da limpeza" width="720" height="960" loading="lazy">
-                <figcaption>Antes</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/img/bolor-depois.webp" alt="O mesmo quarto com o teto limpo e saudável, depois da limpeza" width="900" height="1200" loading="lazy">
-                <figcaption>Depois</figcaption>
-              </figure>
-            </div>
-            <p class="ba-hint">Limpeza completa de teto afetado por humidade.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -245,16 +289,24 @@
           <h2 id="galeria-titulo">Trabalhos recentes</h2>
           <p>Uma amostra do que fazemos todos os dias, das fachadas industriais aos interiores mais delicados.</p>
         </div>
-        <ul class="gallery">
+        <ul class="gallery" id="galeria-fotos">
           <li><a href="assets/img/fachadas-4.webp" data-caption="Limpeza de fachada e vidros com plataforma elevatória"><img src="assets/img/fachadas-4.webp" alt="Trabalhador em plataforma elevatória articulada a limpar a fachada envidraçada de um edifício" width="1050" height="1400" loading="lazy"></a></li>
-          <li><a href="assets/img/fachadas-1.webp" data-caption="Limpeza de fachada com pértiga profissional"><img src="assets/img/fachadas-1.webp" alt="Profissional a limpar a fachada de um edifício de escritórios com pértiga telescópica" width="787" height="1400" loading="lazy"></a></li>
-          <li><a href="assets/img/fachadas-2.webp" data-caption="Limpeza de fachada industrial em altura"><img src="assets/img/fachadas-2.webp" alt="Plataforma elevatória de tesoura estendida junto a uma fachada industrial de grande altura" width="803" height="1400" loading="lazy"></a></li>
-          <li><a href="assets/img/fachadas-3.webp" data-caption="Frota e equipa Gold Cleaning em trabalhos de fachada"><img src="assets/img/fachadas-3.webp" alt="Viatura da Gold Cleaning junto a um edifício comercial durante trabalhos de limpeza em altura" width="788" height="1400" loading="lazy"></a></li>
+          <li><a href="assets/img/galeria-fabrica-2.webp" data-caption="Limpeza geral em fábrica com plataforma elevatória"><img src="assets/img/galeria-fabrica-2.webp" alt="Profissional em plataforma elevatória a limpar a estrutura e as prateleiras de um armazém industrial" width="506" height="900" loading="lazy"></a></li>
           <li><a href="assets/img/vidros.webp" data-caption="Limpeza de vidros interiores"><img src="assets/img/vidros.webp" alt="Profissional da Gold Cleaning a lavar uma parede de vidro num pavilhão desportivo" width="787" height="1400" loading="lazy"></a></li>
+          <li><a href="assets/img/galeria-passeios.webp" data-caption="Lavagem de passeios em alta pressão"><img src="assets/img/galeria-passeios.webp" alt="Profissional da Gold Cleaning a lavar um passeio de calçada com máquina de alta pressão" width="506" height="900" loading="lazy"></a></li>
           <li><a href="assets/img/telhados.webp" data-caption="Limpeza de telhado com equipamento de segurança"><img src="assets/img/telhados.webp" alt="Trabalhador com arnês e capacete a lavar um telhado com máquina de alta pressão" width="788" height="1400" loading="lazy"></a></li>
+          <li><a href="assets/img/galeria-carpete.webp" data-caption="Lavagem profissional de carpetes"><img src="assets/img/galeria-carpete.webp" alt="Profissional da Gold Cleaning a lavar uma carpete com máquina de limpeza profunda numa sala" width="506" height="900" loading="lazy"></a></li>
           <li><a href="assets/img/escritorios.webp" data-caption="Limpeza final de obra em escritórios"><img src="assets/img/escritorios.webp" alt="Profissional a lavar o pavimento de um escritório novo com máquina lavadora" width="788" height="1400" loading="lazy"></a></li>
+          <li><a href="assets/img/galeria-fabrica-1.webp" data-caption="Limpeza geral em fábrica"><img src="assets/img/galeria-fabrica-1.webp" alt="Plataforma elevatória de tesoura numa nave industrial durante a limpeza geral" width="556" height="900" loading="lazy"></a></li>
+          <li><a href="assets/img/fachadas-1.webp" data-caption="Limpeza de fachada com pértiga profissional"><img src="assets/img/fachadas-1.webp" alt="Profissional a limpar a fachada de um edifício de escritórios com pértiga telescópica" width="787" height="1400" loading="lazy"></a></li>
+          <li><a href="assets/img/fachadas-3.webp" data-caption="Frota e equipa Gold Cleaning em trabalhos de fachada"><img src="assets/img/fachadas-3.webp" alt="Viatura da Gold Cleaning junto a um edifício comercial durante trabalhos de limpeza em altura" width="788" height="1400" loading="lazy"></a></li>
+          <li><a href="assets/img/galeria-fabrica-3.webp" data-caption="Equipa em limpeza industrial"><img src="assets/img/galeria-fabrica-3.webp" alt="Profissional equipado com capacete e colete numa plataforma, em limpeza industrial" width="506" height="900" loading="lazy"></a></li>
+          <li><a href="assets/img/fachadas-2.webp" data-caption="Limpeza de fachada industrial em altura"><img src="assets/img/fachadas-2.webp" alt="Plataforma elevatória de tesoura estendida junto a uma fachada industrial de grande altura" width="803" height="1400" loading="lazy"></a></li>
           <li><a href="assets/img/carpetes.webp" data-caption="Lavagem profissional de carpetes"><img src="assets/img/carpetes.webp" alt="Profissional a lavar uma carpete clara com máquina de limpeza profunda" width="787" height="1400" loading="lazy"></a></li>
         </ul>
+        <div class="gallery-toggle-wrap">
+          <button type="button" class="btn btn--ghost gallery-toggle" aria-expanded="false" aria-controls="galeria-fotos">Ver mais fotos</button>
+        </div>
       </div>
     </section>
 
@@ -371,6 +423,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=8" defer></script>
+  <script src="assets/js/main.js?v=9" defer></script>
 </body>
 </html>

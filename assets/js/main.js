@@ -62,6 +62,18 @@
     });
   }
 
+  /* ---------- "Ver mais fotos" (galeria) ---------- */
+  var galToggle = document.querySelector('.gallery-toggle');
+  var galGrid = document.getElementById('galeria-fotos');
+  if (galToggle && galGrid) {
+    galGrid.classList.add('is-collapsed');
+    galToggle.addEventListener('click', function () {
+      var collapsed = galGrid.classList.toggle('is-collapsed');
+      galToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      galToggle.textContent = collapsed ? 'Ver mais fotos' : 'Ver menos fotos';
+    });
+  }
+
   /* ---------- Slider antes/depois ---------- */
   document.querySelectorAll('.ba-slider').forEach(function (slider) {
     var range = slider.querySelector('input[type="range"]');
