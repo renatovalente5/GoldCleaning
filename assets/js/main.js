@@ -62,6 +62,26 @@
     });
   }
 
+  /* ---------- "Ver mais resultados" (antes/depois, telemóvel) ----------
+     Revela +2 imagens por clique; o botão desaparece quando não há mais. */
+  var baToggle = document.querySelector('.ba-toggle');
+  var baGrid = document.getElementById('lista-antes-depois');
+  var baWrap = document.querySelector('.ba-toggle-wrap');
+  if (baToggle && baGrid && baWrap) {
+    var INIT = 2, STEP = 2;
+    var baItems = [].slice.call(baGrid.querySelectorAll('.ba-item'));
+    baItems.forEach(function (li, i) { if (i >= INIT) li.classList.add('ba-hidden'); });
+    var refreshBa = function () {
+      if (baGrid.querySelectorAll('.ba-item.ba-hidden').length === 0) baWrap.classList.add('is-done');
+    };
+    refreshBa();
+    baToggle.addEventListener('click', function () {
+      var hidden = baGrid.querySelectorAll('.ba-item.ba-hidden');
+      for (var k = 0; k < STEP && k < hidden.length; k++) hidden[k].classList.remove('ba-hidden');
+      refreshBa();
+    });
+  }
+
   /* ---------- "Ver mais fotos" (galeria) ---------- */
   var galToggle = document.querySelector('.gallery-toggle');
   var galGrid = document.getElementById('galeria-fotos');
