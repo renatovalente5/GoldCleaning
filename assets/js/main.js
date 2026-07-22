@@ -63,21 +63,28 @@
   }
 
   /* ---------- "Ver mais resultados" (antes/depois) ----------
-     A partir de 6 comparadores mostra só 6 e revela o resto no clique (todos os ecrãs). */
+     Telemóvel (≤640) mostra 2; ecrãs maiores mostram 6. O botão revela o resto. */
   var baToggle = document.querySelector('.ba-toggle');
   var baGrid = document.getElementById('lista-antes-depois');
   var baWrap = document.querySelector('.ba-toggle-wrap');
   if (baToggle && baGrid && baWrap) {
-    var INIT = 6;
     var baItems = [].slice.call(baGrid.querySelectorAll('.ba-item'));
-    if (baItems.length > INIT) {
-      baItems.forEach(function (li, i) { if (i >= INIT) li.classList.add('ba-hidden'); });
-      baWrap.classList.add('is-active');
-      baToggle.addEventListener('click', function () {
-        baItems.forEach(function (li) { li.classList.remove('ba-hidden'); });
-        baWrap.classList.remove('is-active');
-      });
-    }
+    var mqBaMobile = window.matchMedia('(max-width: 640px)');
+    var baExpanded = false;
+    var applyBa = function () {
+      if (baExpanded) return;
+      var INIT = mqBaMobile.matches ? 2 : 6;
+      baItems.forEach(function (li, i) { li.classList.toggle('ba-hidden', i >= INIT); });
+      baWrap.classList.toggle('is-active', baItems.length > INIT);
+    };
+    applyBa();
+    if (mqBaMobile.addEventListener) mqBaMobile.addEventListener('change', applyBa);
+    else if (mqBaMobile.addListener) mqBaMobile.addListener(applyBa);
+    baToggle.addEventListener('click', function () {
+      baExpanded = true;
+      baItems.forEach(function (li) { li.classList.remove('ba-hidden'); });
+      baWrap.classList.remove('is-active');
+    });
   }
 
   /* ---------- "Ver mais fotos" (galeria) ---------- */
