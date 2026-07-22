@@ -62,24 +62,22 @@
     });
   }
 
-  /* ---------- "Ver mais resultados" (antes/depois, telemóvel) ----------
-     Revela +2 imagens por clique; o botão desaparece quando não há mais. */
+  /* ---------- "Ver mais resultados" (antes/depois) ----------
+     A partir de 6 comparadores mostra só 6 e revela o resto no clique (todos os ecrãs). */
   var baToggle = document.querySelector('.ba-toggle');
   var baGrid = document.getElementById('lista-antes-depois');
   var baWrap = document.querySelector('.ba-toggle-wrap');
   if (baToggle && baGrid && baWrap) {
-    var INIT = 2, STEP = 2;
+    var INIT = 6;
     var baItems = [].slice.call(baGrid.querySelectorAll('.ba-item'));
-    baItems.forEach(function (li, i) { if (i >= INIT) li.classList.add('ba-hidden'); });
-    var refreshBa = function () {
-      if (baGrid.querySelectorAll('.ba-item.ba-hidden').length === 0) baWrap.classList.add('is-done');
-    };
-    refreshBa();
-    baToggle.addEventListener('click', function () {
-      var hidden = baGrid.querySelectorAll('.ba-item.ba-hidden');
-      for (var k = 0; k < STEP && k < hidden.length; k++) hidden[k].classList.remove('ba-hidden');
-      refreshBa();
-    });
+    if (baItems.length > INIT) {
+      baItems.forEach(function (li, i) { if (i >= INIT) li.classList.add('ba-hidden'); });
+      baWrap.classList.add('is-active');
+      baToggle.addEventListener('click', function () {
+        baItems.forEach(function (li) { li.classList.remove('ba-hidden'); });
+        baWrap.classList.remove('is-active');
+      });
+    }
   }
 
   /* ---------- "Ver mais fotos" (galeria) ---------- */

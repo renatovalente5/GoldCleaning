@@ -314,6 +314,9 @@ a:hover { color: var(--gold-bright); }
 }
 .ba-item h3 { font-family: var(--font-display); font-size: 1.08rem; margin: 0 0 12px; }
 .ba-toggle-wrap { display: none; text-align: center; margin-top: 22px; }
+/* "Ver mais resultados": colapsa a grelha a partir de 6 comparadores (só com JS, todos os ecrãs) */
+html.js .ba-item.ba-hidden { display: none; }
+html.js .ba-toggle-wrap.is-active { display: block; }
 
 /* ---------- Sobre / Porquê ---------- */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
@@ -600,9 +603,6 @@ html:not(.js) .map-consent .btn { display: none; }
   .ba-grid { grid-template-columns: 1fr; gap: 28px; }
   .ba-item { text-align: center; }
   .ba-slider { max-width: 320px; margin-inline: auto; }
-  html.js .ba-item.ba-hidden { display: none; }
-  html.js .ba-toggle-wrap { display: block; }
-  html.js .ba-toggle-wrap.is-done { display: none; }
   html.js .gallery.is-collapsed li:nth-child(n+5) { display: none; }
   .brand img { height: 58px; }
   .site-header.is-scrolled .brand img { height: 38px; }
