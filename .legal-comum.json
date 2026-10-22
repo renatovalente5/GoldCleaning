@@ -1,0 +1,14 @@
+{
+  "versao": "1.0.0",
+  "instaladoEm": "2026-10-22",
+  "origem": "/Users/renatovalente/Websites/_ferramentas/legal-comum",
+  "modo": "fragmentos do CLI colados com marcadores <!-- legal-comum:… --> (sem cópia da biblioteca)",
+  "pecas": {
+    "livro": ["index.html", "termos.html", "privacidade.html", "cookies.html", "404.html"],
+    "livro-css": ["index.html", "termos.html", "privacidade.html", "cookies.html", "404.html"],
+    "ral": ["termos.html"],
+    "privacidade": ["privacidade.html"],
+    "cookies": ["index.html"],
+    "cookies-texto": ["cookies.html"]
+  }
+}

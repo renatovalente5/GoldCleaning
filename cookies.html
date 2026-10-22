@@ -14,7 +14,22 @@
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=31">
+  <link rel="stylesheet" href="assets/css/styles.css?v=32">
+<!-- legal-comum:livro-css v1.0.0 -->
+  <style>
+  .lr-botao{display:inline-flex;align-items:center;gap:.5em;min-height:44px;min-width:44px;padding:.5em 1em;border:1px solid transparent;border-radius:.5em;background:#af272f;color:#ffffff;font-family:inherit;font-size:max(14px,.95rem);font-weight:600;line-height:1.2;text-decoration:none;white-space:nowrap;cursor:pointer}
+  .lr-botao:hover,.lr-botao:focus-visible{text-decoration:underline;text-underline-offset:.15em}
+  .lr-botao:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+  .lr-botao svg{width:1.5em;height:1.5em;flex:none}
+  .lr-botao--vermelho{background:#af272f;color:#ffffff;border-color:transparent}
+  .lr-botao--azul{background:#005a9c;color:#ffffff;border-color:transparent}
+  .lr-botao--preto{background:#111111;color:#ffffff;border-color:transparent}
+  .lr-botao--branco{background:#ffffff;color:#111111;border-color:#111111}
+  .lr-texto{font-weight:700;color:inherit;text-decoration:underline;text-underline-offset:.15em}
+  .lr-texto svg{width:1.2em;height:1.2em;vertical-align:-.2em;margin-right:.3em}
+  .lr-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  </style>
+  <!-- /legal-comum:livro-css -->
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
@@ -42,16 +57,20 @@
   <main id="conteudo" class="legal-page">
     <div class="container">
       <h1>Política de Cookies</h1>
-      <p class="updated">Última atualização: julho de 2026</p>
+      <p class="updated">Última atualização: outubro de 2026</p>
 
       <h2>1. Cookies próprios: nenhum</h2>
-      <p>O website da Gold Cleaning Services <strong>não utiliza cookies próprios nem ferramentas de análise de tráfego (analytics), publicidade ou personalização</strong>. Por predefinição, nenhum cookie não essencial é instalado e nenhum conteúdo de terceiros é carregado automaticamente.</p>
-      <p>Guardamos apenas, no seu navegador (em <em>localStorage</em>, que não é enviado para nós nem para terceiros), a sua opção quanto ao mapa (aceite/recusado), para não voltar a perguntar em cada visita. Este registo é estritamente necessário para respeitar a sua escolha e não depende de consentimento.</p>
+      <p>O website da Gold Cleaning Services <strong>não utiliza cookies próprios nem ferramentas de análise de tráfego (analytics), publicidade ou personalização</strong>. Nenhum cookie é instalado e nenhum conteúdo de terceiros é carregado antes de uma escolha sua.</p>
+      <!-- legal-comum:cookies-texto v1.0.0 -->
+      <p>Este site não grava cookies nem lê nada do seu aparelho antes de uma escolha sua, e por isso não tem aviso de cookies. A única excepção é o mapa: só é carregado dos servidores da Google depois de carregar em «Carregar o mapa», e essa escolha fica guardada no seu aparelho (localStorage) até a retirar em «Deixar de carregar o mapa».</p>
+      <p>Para retirar a autorização que deu ao mapa, carregue em «Deixar de carregar o mapa» junto ao mapa: a escolha é apagada do seu aparelho e o mapa deixa de ser carregado na hora. Pode voltar a autorizá-lo quando quiser, com um clique no mapa.</p>
+      <!-- /legal-comum:cookies-texto -->
+      <p>A escolha fica guardada no seu navegador, em <em>localStorage</em>, com a chave <code>gc-mapa-autorizado</code>; não é enviada para nós nem para terceiros e só existe depois de carregar no botão. Este registo é estritamente necessário para respeitar a sua escolha e não depende de consentimento.</p>
 
-      <h2>2. Mapa do Google Maps (mediante consentimento)</h2>
-      <p>Na secção de contactos existe um <strong>mapa interativo do Google Maps</strong>, que instala cookies da Google. Este mapa <strong>não é carregado automaticamente</strong>: na primeira visita é-lhe apresentado um aviso onde pode <strong>aceitar ou rejeitar</strong> (o site funciona igualmente nos dois casos). Enquanto não aceitar, é mostrado apenas um aviso, sem qualquer conteúdo ou pedido à Google.</p>
-      <p>Se aceitar, o mapa da Google é carregado e a Google pode instalar cookies (por exemplo, o cookie «NID») e tratar dados da sua visita, como o endereço IP, de acordo com as suas políticas. O consentimento é pedido nos termos do artigo 5.º da Lei n.º 41/2004 e do artigo 6.º, n.º 1, alínea a) do RGPD.</p>
-      <p><strong>Alterar ou retirar a sua escolha:</strong> a qualquer momento, clique em «Definições de cookies» no rodapé para voltar a ver o aviso e mudar a sua decisão. A retirada do consentimento é tão simples como a sua concessão.</p>
+      <h2 id="definicoes">2. Mapa do Google Maps (mediante consentimento)</h2>
+      <p>Na secção de contactos existe um <strong>mapa interativo do Google Maps</strong>, que instala cookies da Google. Este mapa <strong>não é carregado automaticamente</strong>: no seu lugar está um aviso com o botão «Carregar o mapa» (o site funciona igualmente sem o mapa; pode sempre usar a ligação «Abrir no Google Maps»). Enquanto não carregar no botão, não é feito qualquer pedido à Google.</p>
+      <p>Se carregar o mapa, a Google pode instalar cookies (por exemplo, o cookie «NID») e tratar dados da sua visita, como o endereço IP, de acordo com as suas políticas. O consentimento é pedido nos termos do artigo 5.º da Lei n.º 41/2004 e do artigo 6.º, n.º 1, alínea a) do RGPD.</p>
+      <p><strong>Alterar ou retirar a sua escolha (definições de cookies):</strong> com o mapa carregado, clique em «Deixar de carregar o mapa», junto ao mapa. A retirada do consentimento é tão simples como a sua concessão: o mapa é removido na hora e a escolha é apagada do seu navegador.</p>
       <p>Políticas de terceiros relevantes:</p>
       <ul>
         <li><a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">Política de cookies da Google</a></li>
@@ -110,13 +129,15 @@
           <li><a href="privacidade.html">Privacidade</a></li>
           <li><a href="cookies.html" aria-current="page">Cookies</a></li>
           <li><a href="termos.html">Termos e Dados da Empresa</a></li>
-          <li><a href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener noreferrer"><strong>Livro de Reclamações</strong></a></li>
-          <li><button type="button" class="cookie-settings" id="cookie-settings">Definições de cookies</button></li>
+          <li><!-- legal-comum:livro v1.0.0 -->
+          <a class="lr-botao lr-botao--vermelho" href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener" lang="pt"><svg class="lr-icone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="currentColor"><path fill-rule="evenodd" d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm1 0v20h1.2V2H7Zm3.8 5.2h5.4a.8.8 0 0 1 0 1.6h-5.4a.8.8 0 0 1 0-1.6Zm0 4h5.4a.8.8 0 0 1 0 1.6h-5.4a.8.8 0 0 1 0-1.6Zm0 4h3.4a.8.8 0 0 1 0 1.6h-3.4a.8.8 0 0 1 0-1.6Z"/></svg><span class="lr-botao__texto">Livro de Reclamações</span><span class="lr-sr"> (abre numa nova janela)</span></a>
+          <!-- /legal-comum:livro --></li>
+          <li><a href="cookies.html#definicoes">Definições de cookies</a></li>
         </ul>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=14" defer></script>
+  <script src="assets/js/main.js?v=15" defer></script>
 </body>
 </html>
