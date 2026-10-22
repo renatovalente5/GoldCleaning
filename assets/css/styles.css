@@ -487,8 +487,6 @@ html.js .gallery.is-collapsed li:nth-child(n+9) { display: none; }
 .footer-bottom ul { list-style: none; display: flex; flex-wrap: wrap; gap: 18px; margin: 0; padding: 0; }
 .footer-bottom strong { color: var(--gold-light); }
 .footer-bottom ul { align-items: center; }
-/* Botão do Livro de Reclamações (legal-comum) */
-.site-footer a.lr-botao, .site-footer a.lr-botao:hover { color: #fff; }
 /* Igual destaque exigido pelo DL 59/2021 art.3.º: herda tamanho e cor do texto ao lado */
 .call-cost { font-size: inherit; color: inherit; }
 .contact-card .call-cost { display: block; font-size: 1.06rem; color: var(--text); font-weight: 600; margin-top: 6px; }
