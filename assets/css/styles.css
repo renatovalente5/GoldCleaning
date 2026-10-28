@@ -442,7 +442,6 @@ html.js .gallery.is-collapsed li:nth-child(n+9) { display: none; }
 }
 .map-card .fachada-mapa .fachada-mapa__retirar:hover { border-color: var(--gold); color: var(--gold-bright); }
 .map-card .fachada-mapa [hidden] { display: none; }
-.contact-livro { margin: 28px 0 0; text-align: center; }
 
 /* ---------- Footer (minimal) ---------- */
 .site-footer {
